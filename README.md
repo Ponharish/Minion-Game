@@ -1,4 +1,4 @@
-#Minion-Game
+##Minion-Game
 This is a fun, simple game I developed in December 2022. The game features a GUI built using Python's Tkinter module.
 
 #Inspiration
