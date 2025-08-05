@@ -31,8 +31,23 @@ jobs:
         pip install pyinstaller
 
     - name: Build executable
+      shell: bash
       run: |
-        pyinstaller --onefile --windowed "miniongame.py"
+        SEP=":"
+        if [[ '${{ runner.os }}' == 'Windows' ]]; then
+          SEP=";"
+        fi
+
+        pyinstaller --onefile --windowed "miniongame.py" \
+          --add-data "1.png${SEP}." \
+          --add-data "2.png${SEP}." \
+          --add-data "3.png${SEP}." \
+          --add-data "4.png${SEP}." \
+          --add-data "5.png${SEP}." \
+          --add-data "6.png${SEP}." \
+          --add-data "7.png${SEP}." \
+          --add-data "help_icon.png${SEP}." \
+          --add-data "Bananasong.mp3${SEP}."
 
     - name: Rename output (Windows)
       if: matrix.os == 'windows-latest'
