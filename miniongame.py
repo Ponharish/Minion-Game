@@ -2,9 +2,18 @@
 #Mini Bossah Game
 
 from tkinter import *
-import random
-import pygame
 from tkinter import messagebox
+
+import os
+import pygame
+import random
+import sys
+
+def getFilePath(path):
+    if getattr(sys, 'frozen', False):
+        return os.path.join(sys._MEIPASS, path)
+    else:
+        return os.path.join(os.path.dirname(__file__), path)
 
 root=Tk()
 root.title('Minion Game')
@@ -69,7 +78,7 @@ resethighscorebtn.pack(side=LEFT)
 def helpfunction():
     messagebox.showinfo(title='Game Info', message='Select Your Desired Character. Then Try and catch the minion. Each successful catch will earn you 10 points')
 
-helpiconimage=PhotoImage(file='help_icon.png')
+helpiconimage=PhotoImage(file=getFilePath('help_icon.png'))
 helpicon=Button(resetscoreframe,image=helpiconimage,borderwidth=2,command=helpfunction)
 helpicon.pack(side=RIGHT)
 
@@ -86,7 +95,7 @@ hiscorelabelnow.pack(side=LEFT)
 
 #GAME MUSIC
 pygame.mixer.init()
-pygame.mixer.music.load('Bananasong.mp3')
+pygame.mixer.music.load(getFilePath('Bananasong.mp3'))
 
 
 
@@ -197,31 +206,31 @@ imageselectionframe.pack()
 
 selectguide=Label(imageselectionframe, text="Select Your Character", fg='red',font= "applecherry 18")
 selectguide.pack()
-img1=PhotoImage(file='1.png')
+img1=PhotoImage(file=getFilePath('1.png'))
 imagebutton1=Button(imageselectionframe,image=img1,borderwidth=2,command=selectimage1)
 imagebutton1.pack(side = LEFT)
 
-img2=PhotoImage(file='2.png')
+img2=PhotoImage(file=getFilePath('2.png'))
 imagebutton2=Button(imageselectionframe,image=img2,borderwidth=2,command=selectimage2)
 imagebutton2.pack(side = LEFT)
 
-img3=PhotoImage(file='3.png')
+img3=PhotoImage(file=getFilePath('3.png'))
 imagebutton3=Button(imageselectionframe,image=img3,borderwidth=2,command=selectimage3)
 imagebutton3.pack(side = LEFT)
 
-img4=PhotoImage(file='4.png')
+img4=PhotoImage(file=getFilePath('4.png'))
 imagebutton4=Button(imageselectionframe,image=img4,borderwidth=2,command=selectimage4)
 imagebutton4.pack(side = LEFT)
 
-img5=PhotoImage(file='5.png')
+img5=PhotoImage(file=getFilePath('5.png'))
 imagebutton5=Button(imageselectionframe,image=img5,borderwidth=2,command=selectimage5)
 imagebutton5.pack(side = LEFT)
 
-img6=PhotoImage(file='6.png')
+img6=PhotoImage(file=getFilePath('6.png'))
 imagebutton6=Button(imageselectionframe,image=img6,borderwidth=2,command=selectimage6)
 imagebutton6.pack(side = LEFT)
 
-img7=PhotoImage(file='7.png')
+img7=PhotoImage(file=getFilePath('7.png'))
 imagebutton7=Button(imageselectionframe,image=img7,borderwidth=2,command=selectimage7)
 imagebutton7.pack(side = LEFT)
 
