@@ -44,14 +44,8 @@ jobs:
       run: |
         mv "dist/miniongame" "dist/app-${{ matrix.os }}"
 
-    - name: Extract OS name without '-latest'
-        id: osname
-        run: |
-          echo "os_name=${{ matrix.os }}" | sed 's/-latest//' >> $GITHUB_OUTPUT
-        shell: bash
-
     - name: Upload executable artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Minion Game-${{ steps.osname.outputs.os_name }}
-          path: dist/
+      uses: actions/upload-artifact@v4
+      with:
+        name: Minion Game-${{ matrix.os }}
+        path: dist/
