@@ -25,7 +25,7 @@ def on_closing():
     global highscorenow
     if messagebox.askokcancel("Quit", "Do you want to quit?"):
         
-        f=open('highscore.txt','w')
+        f=open(getFilePath('highscore.txt'),'w')
         f.write(str(highscorenow))
         f.close()
         pygame.mixer.music.stop()
@@ -84,7 +84,7 @@ helpicon.pack(side=RIGHT)
 
 
 try:
-    f=open('highscore.txt','r')
+    f=open(getFilePath('highscore.txt'),'r')
     highscorenow=int(f.read())
     print(highscorenow)
     f.close()
